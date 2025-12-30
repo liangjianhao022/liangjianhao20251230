@@ -78,6 +78,20 @@ import characterList from '../data/characterList.json';
 const route = useRoute();
 const router = useRouter();
 const character = ref(null);
+const showStory = ref(false);
+
+const processPath = (path) => {
+  if (path.startsWith('../')) {
+    return path.replace('../', '/liangjianhao20251230/');
+  }
+  return path;
+};
+
+const characterStories = {
+
+const route = useRoute();
+const router = useRouter();
+const character = ref(null);
 const imgUrl = ref('');
 const flagUrl = ref('');
 const radarPoints = ref('');
@@ -380,8 +394,8 @@ onMounted(() => {
   character.value = target;
 
   if (target) {
-    imgUrl.value = new URL(target.img, import.meta.url).href;
-    flagUrl.value = new URL(target.flagImg, import.meta.url).href;
+    imgUrl.value = processPath(target.img);
+    flagUrl.value = processPath(target.flagImg);
 
     radarPoints.value = '100,100 100,100 100,100 100,100 100,100 100,100';
     setTimeout(() => {
