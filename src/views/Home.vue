@@ -59,6 +59,7 @@ import { ref, onMounted, computed } from 'vue'
 import SearchInput from '../components/SearchInput.vue'
 import CharacterCard from '../components/CharacterCard.vue'
 import characterList from '../data/characterList.json'
+import { preloadImages } from '../utils/imageHelper.js'
 
 const allCharacters = ref([])
 const searchKeyword = ref('')
@@ -106,7 +107,8 @@ const filteredCharacters = computed(() => {
   return result
 })
 
-onMounted(() => {
+onMounted(async () => {
+  await preloadImages(characterList)
   allCharacters.value = characterList
 })
 

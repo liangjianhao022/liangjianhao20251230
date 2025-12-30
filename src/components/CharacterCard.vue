@@ -18,8 +18,9 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { getCachedImageUrl } from '../utils/imageHelper.js';
 
 const props = defineProps({
   character: {
@@ -37,7 +38,7 @@ const handleCardClick = () => {
   });
 };
 
-const imgUrl = props.character.img;
+const imgUrl = getCachedImageUrl(props.character.img);
 </script>
 
 <style scoped>

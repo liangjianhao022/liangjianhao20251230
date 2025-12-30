@@ -74,6 +74,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import characterList from '../data/characterList.json';
+import { preloadImages, getCachedImageUrl } from '../utils/imageHelper.js';
 
 const route = useRoute();
 const router = useRouter();
@@ -380,8 +381,8 @@ onMounted(() => {
   character.value = target;
 
   if (target) {
-    imgUrl.value = target.img;
-    flagUrl.value = target.flagImg;
+    imgUrl.value = getCachedImageUrl(target.img);
+    flagUrl.value = getCachedImageUrl(target.flagImg);
 
     radarPoints.value = '100,100 100,100 100,100 100,100 100,100 100,100';
     setTimeout(() => {
