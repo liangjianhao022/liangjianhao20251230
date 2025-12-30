@@ -380,8 +380,8 @@ onMounted(() => {
   character.value = target;
 
   if (target) {
-    imgUrl.value = new URL(target.img, import.meta.url).href;
-    flagUrl.value = new URL(target.flagImg, import.meta.url).href;
+    imgUrl.value = target.img;
+    flagUrl.value = target.flagImg;
 
     radarPoints.value = '100,100 100,100 100,100 100,100 100,100 100,100';
     setTimeout(() => {

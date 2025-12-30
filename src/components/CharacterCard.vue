@@ -37,7 +37,7 @@ const handleCardClick = () => {
   });
 };
 
-const imgUrl = new URL(props.character.img, import.meta.url).href;
+const imgUrl = props.character.img;
 </script>
 
 <style scoped>
