@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 
 const props = defineProps({
@@ -37,14 +37,7 @@ const handleCardClick = () => {
   });
 };
 
-const imgUrl = computed(() => {
-  const path = props.character.img;
-  // 如果是相对路径，需要添加 base 路径
-  if (path.startsWith('../')) {
-    return path.replace('../', '/liangjianhao20251230/');
-  }
-  return path;
-});
+const imgUrl = new URL(props.character.img, import.meta.url).href;
 </script>
 
 <style scoped>

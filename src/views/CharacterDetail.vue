@@ -83,13 +83,6 @@ const flagUrl = ref('');
 const radarPoints = ref('');
 const showStory = ref(false);
 
-const processPath = (path) => {
-  if (path.startsWith('../')) {
-    return path.replace('../', '/liangjianhao20251230/');
-  }
-  return path;
-};
-
 const characterStories = {
   1: `<h4>🏐 日向翔阳的故事</h4>
     <p>日向翔阳是乌野高校排球部的"小巨人"，身高只有162.8cm，但拥有惊人的弹跳力和敏捷性。</p>
@@ -387,8 +380,8 @@ onMounted(() => {
   character.value = target;
 
   if (target) {
-    imgUrl.value = processPath(target.img);
-    flagUrl.value = processPath(target.flagImg);
+    imgUrl.value = new URL(target.img, import.meta.url).href;
+    flagUrl.value = new URL(target.flagImg, import.meta.url).href;
 
     radarPoints.value = '100,100 100,100 100,100 100,100 100,100 100,100';
     setTimeout(() => {
