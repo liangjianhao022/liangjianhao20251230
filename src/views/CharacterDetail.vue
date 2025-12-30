@@ -78,6 +78,9 @@ import characterList from '../data/characterList.json';
 const route = useRoute();
 const router = useRouter();
 const character = ref(null);
+const imgUrl = ref('');
+const flagUrl = ref('');
+const radarPoints = ref('');
 const showStory = ref(false);
 
 const processPath = (path) => {
@@ -86,16 +89,6 @@ const processPath = (path) => {
   }
   return path;
 };
-
-const characterStories = {
-
-const route = useRoute();
-const router = useRouter();
-const character = ref(null);
-const imgUrl = ref('');
-const flagUrl = ref('');
-const radarPoints = ref('');
-const showStory = ref(false);
 
 const characterStories = {
   1: `<h4>🏐 日向翔阳的故事</h4>
