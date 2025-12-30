@@ -11,7 +11,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/ljh20251230/'),
+  history: createWebHistory('/liangjianhao20251230/'),
   routes
 });
 
